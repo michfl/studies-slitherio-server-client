@@ -1,0 +1,107 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Snake" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" Closing="Window_Closing">
+
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Setter Property="Background" Value="#FF0D3564"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Papyrus"/>
+            <Setter Property="Foreground" Value="#FF72B45E"/>
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Papyrus"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="3" Opacity="0.8"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FF112457"/>
+            <Setter Property="FontFamily" Value="Papyrus"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+    </Window.Resources>
+
+    <Border>
+        <Grid Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Snake"/>
+
+            <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,20,0,0">
+                <Label Content="Server IP:"/>
+                <TextBox x:Name="textBox_serverIP"  Width="200" Height="25"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="2" Margin="0,20,0,0">
+                <Label Content="Server Port:"/>
+                <TextBox x:Name="textBox_serverPort"  Width="200" Height="25"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="3" Margin="0,20,0,0">
+                <Label Content="Player name:"/>
+                <TextBox x:Name="textBox_name"  Width="200" Height="25"/>
+            </StackPanel>
+
+            <Button x:Name="button_connect" Grid.Column="0" Grid.Row="4" Height="25" Width="100" Content="Connect" Margin="0,40,0,0" Click="button_connect_Click"/>
+            <Button x:Name="button_disconnect" Grid.Column="0" Grid.Row="4" Height="25" Width="100" Content="Disconnect" Margin="0,40,0,0" Click="button_disconnect_Click"/>
+        </Grid>
+    </Border>
+</Window>
